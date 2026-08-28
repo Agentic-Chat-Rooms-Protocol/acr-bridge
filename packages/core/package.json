@@ -1,0 +1,13 @@
+{
+  "name": "@acr/platform-bridge-core",
+  "version": "0.1.0",
+  "description": "Unified platform bridge core for ACR Protocol - Telegram, Mattermost, Signal, WhatsApp with ANS-gated trust",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsx test/verify-platform-bridges.ts"
+  },
+  "license": "MIT"
+}
