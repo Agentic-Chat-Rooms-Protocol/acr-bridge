@@ -1,0 +1,43 @@
+{
+  "name": "@openacp/mattermost-adapter",
+  "version": "0.1.0",
+  "description": "OpenACP Mattermost adapter — full-featured messenger plugin with threads, streaming, and reactions",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@openacp/plugin-sdk": ">=2026.0.0"
+  },
+  "devDependencies": {
+    "@openacp/plugin-sdk": "^2026.407.1",
+    "@types/node": "^22.0.0",
+    "vitest": "^3.0.0",
+    "typescript": "^5.8.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+  },
+  "keywords": [
+    "openacp",
+    "plugin",
+    "mattermost",
+    "adapter",
+    "chat",
+    "messaging"
+  ]
+}

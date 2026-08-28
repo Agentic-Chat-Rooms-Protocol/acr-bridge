@@ -1,0 +1,23 @@
+{
+  "name": "@openacp/e2e-whatsapp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "E2E tests for the OpenACP WhatsApp adapter (Baileys / WhatsApp Web)",
+  "scripts": {
+    "connect": "tsx connect.ts",
+    "connect:pairing": "tsx connect.ts --pairing-code",
+    "test": "tsx e2e-test.ts"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@openacp/whatsapp-adapter",
+  "version": "0.1.0",
+  "description": "OpenACP WhatsApp adapter — Baileys-based plugin with voice notes, reactions, and low-fidelity rendering",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@openacp/plugin-sdk": ">=2026.0.0"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.16"
+  },
+  "devDependencies": {
+    "@openacp/plugin-sdk": "^2026.407.1",
+    "@types/node": "^22.0.0",
+    "vitest": "^3.0.0",
+    "typescript": "^5.8.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+  },
+  "keywords": [
+    "openacp",
+    "plugin",
+    "whatsapp",
+    "adapter",
+    "baileys",
+    "messaging"
+  ]
+}

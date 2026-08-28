@@ -1,0 +1,27 @@
+{
+  "name": "@openacp/telegram-adapter-kiros",
+  "version": "0.1.0",
+  "description": "OpenACP Telegram adapter with multi-chat DM/group support — drop-in replacement for built-in @openacp/telegram",
+  "type": "module",
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "install:openacp": "bash install.sh",
+    "diff": "bash diff.sh"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+  },
+  "keywords": [
+    "openacp",
+    "plugin",
+    "telegram",
+    "adapter",
+    "multi-chat",
+    "dm",
+    "group"
+  ]
+}

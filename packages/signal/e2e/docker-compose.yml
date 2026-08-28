@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  signal-cli-rest-api:
+    image: bbernhard/signal-cli-rest-api:latest
+    container_name: signal-e2e-api
+    ports:
+      - "8080:8080"
+    environment:
+      - MODE=native
+    volumes:
+      - signal-cli-data:/home/.local/share/signal-cli
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/about"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  signal-cli-data:
+    driver: local
