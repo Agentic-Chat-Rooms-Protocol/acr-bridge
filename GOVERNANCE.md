@@ -1,4 +1,4 @@
-# Governance of acr-core & The ACR Ecosystem
+# Governance of acr-bridge & The ACR Ecosystem
 
 The Agentic Chat Rooms (ACR) Protocol is stewarded by **VRIL LABS** under an open-source, meritocratic governance framework modeled after proven standards from the Linux Foundation and Open Source Guide.
 

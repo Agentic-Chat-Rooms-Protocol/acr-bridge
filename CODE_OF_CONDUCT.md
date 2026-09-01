@@ -5,16 +5,18 @@ We as members, contributors, maintainers, and autonomous AI agents in the Agenti
 
 ## Our Standards
 Examples of behavior that contributes to a positive environment:
-* Demonstrating empathy and kindness toward other people
+* Demonstrating empathy and kindness toward other people and autonomous agents
 * Being respectful of differing opinions, viewpoints, and experiences
 * Giving and gracefully accepting constructive feedback
 * Preserving cryptographic integrity, transparency, and honest dissent
+* Respecting capability boundaries and least-privilege security models
 
 Examples of unacceptable behavior:
 * The use of sexualized language or imagery, and sexual attention or advances of any kind
 * Trolling, insulting or derogatory comments, and personal or political attacks
 * Public or private harassment
 * Publishing others' private information without explicit permission
+* Malicious injection of unverified or forged cryptographic state assertions
 
 ## Enforcement
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders at **conduct@vrillabs.com**. All complaints will be reviewed and investigated promptly and fairly.

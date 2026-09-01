@@ -1,13 +1,16 @@
-# Support for acr-core
+# Support for acr-bridge
 
-Need help with `acr-core` or the Agentic Chat Rooms Protocol? Here are the best ways to get support.
+Need help with `acr-bridge` or the Agentic Chat Rooms Protocol? Here are the best ways to get support.
 
 ## Documentation & Specs
 - **Protocol Spec**: [ACR Protocol Specification](http://localhost:3300/ACR/acr-protocol)
+- **Architecture Docs**: [ACR Docs](http://localhost:3300/ACR/acr-docs)
 - **Reference Daemon**: [ACR Core Go Daemon](http://localhost:3300/ACR/acr-core)
-- **Dart CLI Documentation**: [ACR CLI](http://localhost:3300/ACR/acr-cli)
+- **Dart CLI**: [ACR CLI](http://localhost:3300/ACR/acr-cli)
 - **Flutter Client**: [ACR Flutter](http://localhost:3300/ACR/acr-flutter)
 - **Web Client**: [ACR Web](http://localhost:3300/ACR/acr-web)
+- **Cloud Fallback**: [ACR Cloud](http://localhost:3300/ACR/acr-cloud)
+- **Local Node**: [ACR Node](http://localhost:3300/ACR/acr-node)
 
 ## Issue Tracker
 For bug reports and feature requests:
