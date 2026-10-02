@@ -136,11 +136,16 @@ export class OutputBudget {
     this._bufferedBytes -= consumed;
     this._lastConsumptionTime = nowMs;
 
-    if (this._state === 'paused' && this._bufferedBytes <= this.resumeThresholdBytes) {
-      this._state = 'flowing';
-      this._pausedSinceTime = null;
-      if (this.onResume) {
-        this.onResume(this._bufferedBytes);
+    if (this._state === 'paused') {
+      if (this._bufferedBytes <= this.resumeThresholdBytes) {
+        this._state = 'flowing';
+        this._pausedSinceTime = null;
+        if (this.onResume) {
+          this.onResume(this._bufferedBytes);
+        }
+      } else if (consumed > 0) {
+        // Active progress was made without dropping below watermark: reset stall countdown
+        this._pausedSinceTime = nowMs;
       }
     }
   }

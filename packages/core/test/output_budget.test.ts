@@ -107,6 +107,30 @@ describe('acr-bridge/core: OutputBudget Memory Backpressure Guard', () => {
     assert.match(disconnectedReason!, /stall_timeout/);
   });
 
+  it('should reset stall timeout countdown when bytes are actively drained without dropping below resume watermark', () => {
+    const budget = new OutputBudget({
+      maxBufferBytes: 1000,
+      stallTimeoutMs: 30000,
+      resumeWatermarkRatio: 0.5, // 500 bytes resume threshold
+    });
+
+    const t0 = 1000000;
+    budget.write(1000, t0);
+    assert.equal(budget.isPaused, true);
+
+    // At 25s elapsed, drain 100 bytes (buffered is 900 > 500 watermark, still paused)
+    budget.drain(100, t0 + 25000);
+    assert.equal(budget.isPaused, true);
+
+    // At 35s elapsed from start (10s elapsed since last drain) -> should NOT disconnect!
+    assert.equal(budget.checkStall(t0 + 35000), false);
+    assert.equal(budget.isDisconnected, false);
+
+    // At 55.1s elapsed (30.1s after last drain) -> should now disconnect
+    assert.equal(budget.checkStall(t0 + 55100), true);
+    assert.equal(budget.isDisconnected, true);
+  });
+
   it('should reject writes when disconnected', () => {
     const budget = new OutputBudget();
     budget.disconnect('operator_veto');
