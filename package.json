@@ -1,0 +1,21 @@
+{
+  "name": "@acr-js/bridge-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACR Enterprise Inbound Re-Signing Bridge Mesh & PII Sanitizer",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npx tsx --test packages/core/test/core.test.ts packages/slack/test/slack_inbound.test.ts packages/teams/test/jwks_resolver.test.ts packages/whatsapp/src/__tests__/whatsapp_inbound.test.ts"
+  },
+  "keywords": [
+    "acr",
+    "bridge",
+    "slack",
+    "teams",
+    "whatsapp"
+  ],
+  "author": "@acr-js",
+  "license": "Apache-2.0"
+}

@@ -57,15 +57,22 @@ export class BridgeIdentity {
 
   constructor(seedOrPrivateKey?: string | Buffer) {
     if (seedOrPrivateKey) {
-      if (typeof seedOrPrivateKey === 'string' && seedOrPrivateKey.length === 64) {
-        // 32-byte hex seed
-        const seed = Buffer.from(seedOrPrivateKey, 'hex');
-        const keyPair = crypto.generateKeyPairSync('ed25519', {
-          privateKeyEncoding: { format: 'der', type: 'pkcs8' },
-          publicKeyEncoding: { format: 'der', type: 'spki' },
-        });
-        this.privateKey = crypto.createPrivateKey({ key: keyPair.privateKey, format: 'der', type: 'pkcs8' });
-        this.publicKey = crypto.createPublicKey({ key: keyPair.publicKey, format: 'der', type: 'spki' });
+      const seedBuf =
+        typeof seedOrPrivateKey === 'string' && seedOrPrivateKey.length === 64
+          ? Buffer.from(seedOrPrivateKey, 'hex')
+          : Buffer.isBuffer(seedOrPrivateKey) && seedOrPrivateKey.length === 32
+          ? seedOrPrivateKey
+          : null;
+
+      if (seedBuf) {
+        // Standard Ed25519 PKCS#8 prefix: 302e020100300506032b657004220420 + 32-byte raw private key
+        const pkcs8Prefix = Buffer.from('302e020100300506032b657004220420', 'hex');
+        const pkcs8Der = Buffer.concat([pkcs8Prefix, seedBuf]);
+        this.privateKey = crypto.createPrivateKey({ key: pkcs8Der, format: 'der', type: 'pkcs8' });
+        this.publicKey = crypto.createPublicKey(this.privateKey);
+      } else if (Buffer.isBuffer(seedOrPrivateKey)) {
+        this.privateKey = crypto.createPrivateKey(seedOrPrivateKey);
+        this.publicKey = crypto.createPublicKey(this.privateKey);
       } else {
         const pair = crypto.generateKeyPairSync('ed25519');
         this.privateKey = pair.privateKey;
@@ -165,6 +172,7 @@ export class SeenSet {
   private readonly cache = new Map<string, SeenEntry>();
   private readonly defaultTtlSeconds: number;
   private readonly maxCapacity: number;
+  private lastPruneTime = 0;
 
   constructor(defaultTtlSeconds = 300, maxCapacity = 50000) {
     this.defaultTtlSeconds = defaultTtlSeconds;
@@ -197,7 +205,10 @@ export class SeenSet {
     ttlSeconds?: number
   ): boolean {
     const now = Date.now();
-    this.pruneExpired(now);
+    if (now - this.lastPruneTime > 5000 || this.cache.size >= this.maxCapacity) {
+      this.pruneExpired(now);
+      this.lastPruneTime = now;
+    }
 
     const key = this.makeKey(platform, channelId, messageId);
     const existing = this.cache.get(key);

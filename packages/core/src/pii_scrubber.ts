@@ -137,7 +137,7 @@ export class PiiScrubber {
   public readonly mode: RedactionMode;
   public readonly secret: Buffer;
   public readonly blockOn: Set<string>;
-  private readonly gateRegex = /[\d@]/;
+  private readonly gateRegex = /[\d@]|(?:AKIA|ASIA|\bey|(?:sk|pk|rk)[-_]|MRN|mrn)/i;
 
   constructor(options: PiiScrubOptions = {}) {
     this.mode = options.mode || 'mask';

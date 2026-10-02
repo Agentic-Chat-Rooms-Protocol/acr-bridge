@@ -121,4 +121,29 @@ describe('acr-bridge/core: Inbound Bridge Mesh & SeenSet', () => {
     const otherPlatform = seen.checkAndAdd('teams', 'C100', 'msg-1');
     assert.equal(otherPlatform, true);
   });
+
+  it('should deterministically derive Ed25519 key pair from 32-byte seed', () => {
+    const seedHex = '11'.repeat(32);
+    const id1 = new BridgeIdentity(seedHex);
+    const id2 = new BridgeIdentity(seedHex);
+    assert.equal(id1.publicKeyHex, id2.publicKeyHex);
+
+    const seedBuf = Buffer.alloc(32, 2);
+    const id3 = new BridgeIdentity(seedBuf);
+    const id4 = new BridgeIdentity(seedBuf);
+    assert.equal(id3.publicKeyHex, id4.publicKeyHex);
+    assert.notEqual(id1.publicKeyHex, id3.publicKeyHex);
+  });
+
+  it('should redact letter-only API keys and MRNs lacking digits or at-symbols', () => {
+    const scrubber = new PiiScrubber({ mode: 'mask' });
+    const resApiKey = scrubber.scrubText('Use key sk-live-abcdefghijklmnop to authenticate');
+    assert.equal(resApiKey.text, 'Use key <API_KEY> to authenticate');
+    assert.equal(resApiKey.redactions.length, 1);
+
+    const resMrn = scrubber.scrubText('Patient MRN: ABCDEF was admitted today');
+    assert.equal(resMrn.text, 'Patient <MRN> was admitted today');
+    assert.equal(resMrn.redactions.length, 1);
+  });
 });
+
