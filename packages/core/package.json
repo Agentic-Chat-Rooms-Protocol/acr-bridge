@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "npx tsx --test test/core.test.ts"
+    "test": "npx tsx --test test/core.test.ts test/output_budget.test.ts"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
