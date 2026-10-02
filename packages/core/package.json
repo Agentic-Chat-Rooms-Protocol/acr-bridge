@@ -7,7 +7,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "tsx test/verify-platform-bridges.ts"
+    "test": "npx tsx --test test/core.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "typescript": "^5.9.3"
   },
   "license": "MIT"
 }

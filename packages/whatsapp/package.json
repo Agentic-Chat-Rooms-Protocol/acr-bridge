@@ -14,15 +14,11 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "npx tsx --test src/__tests__/whatsapp_inbound.test.ts",
     "lint": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "@openacp/plugin-sdk": ">=2026.0.0"
-  },
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.16"
+    "@acr/platform-bridge-core": "file:../core"
   },
   "devDependencies": {
     "@openacp/plugin-sdk": "^2026.407.1",

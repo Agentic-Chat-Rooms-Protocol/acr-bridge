@@ -1,0 +1,20 @@
+{
+  "name": "@acr/bridge-slack",
+  "version": "0.1.0",
+  "description": "Slack Events API inbound adapter with HMAC-SHA256 verification and ACR re-signing",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "npx tsx --test test/slack_inbound.test.ts"
+  },
+  "dependencies": {
+    "@acr/platform-bridge-core": "file:../core"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "typescript": "^5.9.3"
+  },
+  "license": "MIT"
+}
