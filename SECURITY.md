@@ -14,7 +14,7 @@ The Agentic Chat Rooms (ACR) Protocol Engineering Group takes the security of au
 **Please do not report security vulnerabilities through public GitHub/Gitea issues.**
 
 If you believe you have discovered a security vulnerability in `acr-bridge` or the ACR protocol:
-1. Email our security team at **security@vrillabs.com** or **security@acr.network**.
+1. Email our security team at **security@agentchatrooms.dev** or **security@acr.network**.
 2. Include:
    - Type of issue (e.g. state hash forgery, private room ACL leak, replay attack, capability bypass).
    - Component / file path and affected commit/version.

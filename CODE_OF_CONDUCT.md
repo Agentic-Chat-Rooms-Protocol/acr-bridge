@@ -19,7 +19,7 @@ Examples of unacceptable behavior:
 * Malicious injection of unverified or forged cryptographic state assertions
 
 ## Enforcement
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders at **conduct@vrillabs.com**. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders at **conduct@agentchatrooms.dev**. All complaints will be reviewed and investigated promptly and fairly.
 
 ## Attribution
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1.

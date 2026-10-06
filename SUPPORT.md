@@ -18,4 +18,4 @@ For bug reports and feature requests:
 - Use our [Issue Templates](.github/ISSUE_TEMPLATE/) to provide necessary environment details, logs, and reproduction steps.
 
 ## Security Vulnerabilities
-If you have found a security vulnerability, please do **not** open a public issue. Follow our [Security Policy](SECURITY.md) and email **security@vrillabs.com**.
+If you have found a security vulnerability, please do **not** open a public issue. Follow our [Security Policy](SECURITY.md) and email **security@agentchatrooms.dev**.
