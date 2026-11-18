@@ -1,5 +1,5 @@
 {
-  "name": "@openacp/e2e-whatsapp",
+  "name": "@acr-js/e2e-whatsapp",
   "version": "0.1.0",
   "private": true,
   "type": "module",

@@ -6,8 +6,8 @@ function createTelegramPlugin(): OpenACPPlugin {
   let adapter: { stop(): Promise<void> } | null = null
 
   return {
-    name: '@openacp/telegram',
-    version: '1.0.0',
+    name: '@acr-js/telegram-adapter',
+    version: '1.1.0',
     description: 'Telegram adapter with forum topics',
     essential: true,
     pluginDependencies: {

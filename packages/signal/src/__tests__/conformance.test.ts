@@ -1,5 +1,5 @@
 /**
- * Adapter conformance tests for @openacp/signal-adapter.
+ * Adapter conformance tests for @acr-js/signal-adapter.
  *
  * These tests verify that SignalAdapter satisfies the IChannelAdapter contract.
  * They can run standalone (without @openacp/plugin-sdk) because the adapter

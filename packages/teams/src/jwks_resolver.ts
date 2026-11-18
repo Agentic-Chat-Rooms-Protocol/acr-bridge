@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { BridgeIdentity, InboundBridgeEnvelope, PiiScrubber, SeenSet } from '@acr/platform-bridge-core';
+import { BridgeIdentity, InboundBridgeEnvelope, PiiScrubber, SeenSet } from '@acr-js/platform-bridge-core';
 
 export interface JwksKey {
   kty: 'RSA';

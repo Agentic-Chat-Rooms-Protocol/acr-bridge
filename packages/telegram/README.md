@@ -1,4 +1,4 @@
-# @openacp/telegram-adapter-kiros
+# @acr-js/telegram-adapter
 
 Drop-in replacement for OpenACP's built-in Telegram adapter, adding **multi-chat parallel sessions** for DM, groups, and supergroups.
 

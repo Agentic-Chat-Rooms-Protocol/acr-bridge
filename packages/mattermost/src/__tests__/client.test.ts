@@ -140,7 +140,7 @@ describe('MattermostClient', () => {
   })
 
   it('throws MattermostApiError on non-429 failure', async () => {
-    fetchMock.mockResolvedValueOnce({
+    fetchMock.mockResolvedValue({
       ok: false,
       status: 403,
       statusText: 'Forbidden',

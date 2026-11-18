@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
-import { BridgeIdentity } from '../../../core/src/index.js';
+import { BridgeIdentity } from '@acr-js/platform-bridge-core';
 import {
   WhatsAppInboundHandler,
   verifyWhatsAppSignature,

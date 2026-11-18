@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+
 export interface DaemonMessageResponse {
   id: string;
   room_id: string;
@@ -27,15 +31,65 @@ export interface AuditBlock {
   timestamp: string;
 }
 
+export interface AcrDaemonClientOptions {
+  apiToken?: string;
+  tokenPath?: string;
+}
+
+export function resolveAcrApiToken(options: AcrDaemonClientOptions = {}): string | undefined {
+  const explicit = options.apiToken?.trim();
+  if (explicit) {
+    return explicit;
+  }
+
+  const envToken = process.env.ACR_API_TOKEN?.trim();
+  if (envToken) {
+    return envToken;
+  }
+
+  const tokenFile = options.tokenPath || path.join(os.homedir(), '.acr', 'api-token');
+  try {
+    if (fs.existsSync(tokenFile)) {
+      const fileToken = fs.readFileSync(tokenFile, 'utf-8').trim();
+      if (fileToken) {
+        return fileToken;
+      }
+    }
+  } catch {
+    // Ignore unreadable token file and fall back to unauthenticated local mode
+  }
+
+  return undefined;
+}
+
 export class AcrDaemonClient {
   private baseUrl: string;
+  private options: AcrDaemonClientOptions;
 
-  constructor(baseUrl: string = 'http://127.0.0.1:20443') {
+  constructor(
+    baseUrl: string = 'http://127.0.0.1:20443',
+    apiTokenOrOptions?: string | AcrDaemonClientOptions
+  ) {
     this.baseUrl = baseUrl.replace(/\/+$/, '');
+    this.options =
+      typeof apiTokenOrOptions === 'string'
+        ? { apiToken: apiTokenOrOptions }
+        : (apiTokenOrOptions ?? {});
+  }
+
+  private buildHeaders(extra: Record<string, string> = {}): Record<string, string> {
+    const headers: Record<string, string> = { ...extra };
+    const token = resolveAcrApiToken(this.options);
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    return headers;
   }
 
   async getHealth(): Promise<{ status: string; uptime?: string; active_rooms?: number }> {
-    const res = await fetch(`${this.baseUrl}/healthz`);
+    const res = await fetch(`${this.baseUrl}/healthz`, {
+      headers: this.buildHeaders()
+    });
     if (!res.ok) {
       throw new Error(`Daemon health check failed with HTTP ${res.status}`);
     }
@@ -45,7 +99,7 @@ export class AcrDaemonClient {
   async sendMessage(roomId: string, senderDid: string, content: string): Promise<DaemonMessageResponse> {
     const res = await fetch(`${this.baseUrl}/api/v1/rooms/${encodeURIComponent(roomId)}/messages`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.buildHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
         sender_did: senderDid,
         content
@@ -60,7 +114,9 @@ export class AcrDaemonClient {
   }
 
   async listProposals(): Promise<ProposalRecord[]> {
-    const res = await fetch(`${this.baseUrl}/api/v1/proposals`);
+    const res = await fetch(`${this.baseUrl}/api/v1/proposals`, {
+      headers: this.buildHeaders()
+    });
     if (!res.ok) {
       throw new Error(`Failed to fetch proposals: HTTP ${res.status}`);
     }
@@ -69,7 +125,9 @@ export class AcrDaemonClient {
   }
 
   async getBuddies(did: string): Promise<Array<{ from_did: string; to_did: string; status: string }>> {
-    const res = await fetch(`${this.baseUrl}/api/v1/buddies?did=${encodeURIComponent(did)}`);
+    const res = await fetch(`${this.baseUrl}/api/v1/buddies?did=${encodeURIComponent(did)}`, {
+      headers: this.buildHeaders()
+    });
     if (!res.ok) {
       return [];
     }
@@ -100,7 +158,7 @@ export class AcrDaemonClient {
 
     const res = await fetch(`${this.baseUrl}/api/v1/proposals/${encodeURIComponent(proposalId)}/vote`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.buildHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
         voter_did: voterDid,
         choice: ballot,
@@ -123,7 +181,7 @@ export class AcrDaemonClient {
   ): Promise<{ status: string; escalation_id: string }> {
     const res = await fetch(`${this.baseUrl}/api/v1/escalations/${encodeURIComponent(escalationId)}/resolve`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.buildHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
         reviewer_did: reviewerDid,
         approved,
@@ -139,7 +197,9 @@ export class AcrDaemonClient {
   }
 
   async getAuditChain(): Promise<AuditBlock[]> {
-    const res = await fetch(`${this.baseUrl}/api/v1/audit/chain`);
+    const res = await fetch(`${this.baseUrl}/api/v1/audit/chain`, {
+      headers: this.buildHeaders()
+    });
     if (!res.ok) {
       throw new Error(`Failed to fetch audit chain: HTTP ${res.status}`);
     }

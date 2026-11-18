@@ -1,7 +1,7 @@
 {
-  "name": "@openacp/mattermost-adapter",
-  "version": "0.1.0",
-  "description": "OpenACP Mattermost adapter — full-featured messenger plugin with threads, streaming, and reactions",
+  "name": "@acr-js/mattermost-adapter",
+  "version": "1.1.0",
+  "description": "ACR Mattermost adapter — messenger plugin with threads, streaming, and reactions",
   "type": "module",
   "exports": {
     ".": {
@@ -21,19 +21,24 @@
   "peerDependencies": {
     "@openacp/plugin-sdk": ">=2026.0.0"
   },
+  "dependencies": {
+    "@acr-js/platform-bridge-core": "file:../core"
+  },
   "devDependencies": {
     "@openacp/plugin-sdk": "^2026.407.1",
     "@types/node": "^22.0.0",
     "vitest": "^3.0.0",
     "typescript": "^5.8.0"
   },
-  "license": "MIT",
+  "author": "@acr-js",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+    "url": "https://github.com/Agentic-Chat-Rooms-Protocol/acr-bridge"
   },
   "keywords": [
-    "openacp",
+    "acr",
+    "acr-js",
     "plugin",
     "mattermost",
     "adapter",

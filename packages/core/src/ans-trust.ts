@@ -1,4 +1,5 @@
 import type { PlatformTrustResult, PlatformType } from './types.js';
+import { resolveAcrApiToken } from './acr-daemon-client.js';
 
 /**
  * ANS Identity & ACR Monotonic Audit Trail Trust Gate
@@ -48,7 +49,10 @@ export async function verifyPlatformSenderTrust(
   let did = `did:key:z6Mk${ansHandle}`;
 
   try {
-    const chainRes = await fetch(`${normalizedDaemonUrl}/api/v1/audit/chain`);
+    const token = resolveAcrApiToken();
+    const chainRes = await fetch(`${normalizedDaemonUrl}/api/v1/audit/chain`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    });
     if (chainRes.ok) {
       const trail = await chainRes.json() as any[];
       if (Array.isArray(trail) && trail.length > 0) {

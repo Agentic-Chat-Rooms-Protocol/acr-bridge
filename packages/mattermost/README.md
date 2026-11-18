@@ -1,4 +1,4 @@
-# @openacp/mattermost-adapter
+# @acr-js/mattermost-adapter
 
 OpenACP Mattermost adapter plugin -- full-featured messenger integration with threading, streaming, reactions, and file uploads.
 
@@ -34,7 +34,7 @@ OpenACP Mattermost adapter plugin -- full-featured messenger integration with th
 ### Installation
 
 ```bash
-npm install @openacp/mattermost-adapter
+npm install @acr-js/mattermost-adapter
 ```
 
 ### Configuration
@@ -42,7 +42,7 @@ npm install @openacp/mattermost-adapter
 The adapter is configured through the OpenACP plugin install flow:
 
 ```
-openacp plugin install @openacp/mattermost-adapter
+openacp plugin install @acr-js/mattermost-adapter
 ```
 
 You will be prompted for:

@@ -1,7 +1,7 @@
 {
-  "name": "@openacp/signal-adapter",
-  "version": "0.1.0",
-  "description": "OpenACP Signal adapter — signal-cli-rest-api plugin with reactions, voice notes, and low-fidelity rendering",
+  "name": "@acr-js/signal-adapter",
+  "version": "1.1.0",
+  "description": "ACR Signal adapter — signal-cli-rest-api plugin with reactions, voice notes, and low-fidelity rendering",
   "type": "module",
   "exports": {
     ".": {
@@ -21,20 +21,24 @@
   "peerDependencies": {
     "@openacp/plugin-sdk": ">=2026.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@acr-js/platform-bridge-core": "file:../core"
+  },
   "devDependencies": {
     "@openacp/plugin-sdk": "^2026.407.1",
     "vitest": "^3.0.0",
     "typescript": "^5.8.0",
     "@types/node": "^22.0.0"
   },
-  "license": "MIT",
+  "author": "@acr-js",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+    "url": "https://github.com/Agentic-Chat-Rooms-Protocol/acr-bridge"
   },
   "keywords": [
-    "openacp",
+    "acr",
+    "acr-js",
     "plugin",
     "signal",
     "adapter",

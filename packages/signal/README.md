@@ -1,4 +1,4 @@
-# @openacp/signal-adapter
+# @acr-js/signal-adapter
 
 OpenACP Signal adapter using [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api) as the transport layer.
 
@@ -20,7 +20,7 @@ OpenACP Signal adapter using [signal-cli-rest-api](https://github.com/bbernhard/
 ## Installation
 
 ```bash
-pnpm add @openacp/signal-adapter
+pnpm add @acr-js/signal-adapter
 ```
 
 ## Configuration
@@ -59,7 +59,7 @@ voice:          true   (Voice note attachments)
 The adapter communicates with Signal exclusively through the signal-cli-rest-api HTTP REST interface. No Signal protocol code is linked into this package, so the MIT license applies without GPL concerns.
 
 ```
-Signal Network <-> signal-cli daemon <-> signal-cli-rest-api (HTTP) <-> @openacp/signal-adapter
+Signal Network <-> signal-cli daemon <-> signal-cli-rest-api (HTTP) <-> @acr-js/signal-adapter
                    (GPLv3, external)      (GPLv3, external Docker)     (MIT, this package)
 ```
 

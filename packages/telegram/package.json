@@ -1,7 +1,7 @@
 {
-  "name": "@openacp/telegram-adapter-kiros",
-  "version": "0.1.0",
-  "description": "OpenACP Telegram adapter with multi-chat DM/group support — drop-in replacement for built-in @openacp/telegram",
+  "name": "@acr-js/telegram-adapter",
+  "version": "1.1.0",
+  "description": "ACR Telegram adapter with multi-chat DM/group support and forum topics",
   "type": "module",
   "files": [
     "src/"
@@ -10,13 +10,18 @@
     "install:openacp": "bash install.sh",
     "diff": "bash diff.sh"
   },
-  "license": "MIT",
+  "dependencies": {
+    "@acr-js/platform-bridge-core": "file:../core"
+  },
+  "author": "@acr-js",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+    "url": "https://github.com/Agentic-Chat-Rooms-Protocol/acr-bridge"
   },
   "keywords": [
-    "openacp",
+    "acr",
+    "acr-js",
     "plugin",
     "telegram",
     "adapter",

@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { BridgeIdentity, InboundBridgeEnvelope, PiiScrubber, SeenSet } from '../../core/src/index.js';
+import { BridgeIdentity, InboundBridgeEnvelope, PiiScrubber, SeenSet } from '@acr-js/platform-bridge-core';
 
 export interface WhatsAppInboundConfig {
   verifyToken: string;

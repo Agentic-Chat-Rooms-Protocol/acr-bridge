@@ -1,8 +1,8 @@
 /**
- * @openacp/mattermost-adapter — OpenACP plugin entry point.
+ * @acr-js/mattermost-adapter — ACR Mattermost bridge plugin entry point.
  *
  * Exports the plugin object as default export, following the standard
- * OpenACP plugin pattern: createPlugin() → OpenACPPlugin.
+ * plugin pattern: createPlugin() → OpenACPPlugin.
  */
 
 import type {
@@ -16,8 +16,8 @@ function createMattermostPlugin(): OpenACPPlugin {
   let adapter: { start(): Promise<void>; stop(): Promise<void> } | null = null
 
   return {
-    name: '@openacp/mattermost-adapter',
-    version: '0.1.0',
+    name: '@acr-js/mattermost-adapter',
+    version: '1.1.0',
     description: 'Mattermost adapter with threads, streaming, and reactions',
     essential: false,
     pluginDependencies: {

@@ -6,15 +6,15 @@ The Agentic Chat Rooms (ACR) Protocol Engineering Group takes the security of au
 
 | Version | Supported | Notes |
 | :--- | :---: | :--- |
-| `v0.9.x` | Yes | Active Draft Release (ACP v2 / W3C DID / Iroh / CF Agents) |
-| `< v0.9.0` | No | Legacy prototypes deprecated |
+| `v1.0.x` | Yes | Active Release (ACP v2 / W3C DID / Iroh / CF Agents) |
+| `< v1.0.0` | No | Legacy prototypes deprecated |
 
 ## Reporting a Vulnerability
 
 **Please do not report security vulnerabilities through public GitHub/Gitea issues.**
 
 If you believe you have discovered a security vulnerability in `acr-bridge` or the ACR protocol:
-1. Email our security team at **security@agentchatrooms.dev** or **security@acr.network**.
+1. Email our security team at **security@agentchatrooms.dev**.
 2. Include:
    - Type of issue (e.g. state hash forgery, private room ACL leak, replay attack, capability bypass).
    - Component / file path and affected commit/version.

@@ -1,7 +1,7 @@
-import { AcrTelegramBridge } from '../../openacp-telegram-adapter/src/acr-telegram-bridge.js';
-import { AcrMattermostBridge } from '../../openacp-mattermost-adapter/src/acr-mattermost-bridge.js';
-import { AcrSignalBridge } from '../../openacp-signal-adapter/src/acr-signal-bridge.js';
-import { AcrWhatsAppBridge } from '../../openacp-whatsapp-adapter/src/acr-whatsapp-bridge.js';
+import { AcrTelegramBridge } from '../../telegram/src/acr-telegram-bridge.js';
+import { AcrMattermostBridge } from '../../mattermost/src/acr-mattermost-bridge.js';
+import { AcrSignalBridge } from '../../signal/src/acr-signal-bridge.js';
+import { AcrWhatsAppBridge } from '../../whatsapp/src/acr-whatsapp-bridge.js';
 
 async function main() {
   console.log('================================================================');

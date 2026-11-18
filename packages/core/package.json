@@ -1,17 +1,19 @@
 {
-  "name": "@acr/platform-bridge-core",
-  "version": "0.1.0",
+  "name": "@acr-js/platform-bridge-core",
+  "version": "1.1.0",
   "description": "Unified platform bridge core for ACR Protocol - Telegram, Mattermost, Signal, WhatsApp with ANS-gated trust",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "npx tsx --test test/core.test.ts test/output_budget.test.ts"
+    "lint": "tsc --noEmit",
+    "test": "npx tsx --test test/core.test.ts test/output_budget.test.ts test/acr_daemon_client.test.ts"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
     "typescript": "^5.9.3"
   },
-  "license": "MIT"
+  "author": "@acr-js",
+  "license": "Apache-2.0"
 }

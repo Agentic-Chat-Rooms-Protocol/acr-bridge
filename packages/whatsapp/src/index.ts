@@ -4,8 +4,8 @@ function createWhatsAppPlugin(): OpenACPPlugin {
   let adapter: { start(): Promise<void>; stop(): Promise<void> } | null = null
 
   return {
-    name: '@openacp/whatsapp-adapter',
-    version: '0.1.0',
+    name: '@acr-js/whatsapp-adapter',
+    version: '1.1.0',
     description: 'WhatsApp adapter using Baileys (WhiskeySockets fork)',
     pluginDependencies: {
       '@openacp/security': '^1.0.0',

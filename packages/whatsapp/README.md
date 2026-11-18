@@ -1,4 +1,4 @@
-# @openacp/whatsapp-adapter
+# @acr-js/whatsapp-adapter
 
 WhatsApp adapter for OpenACP using the [Baileys](https://github.com/WhiskeySockets/Baileys) library (WhatsApp Web multi-device protocol).
 
@@ -32,7 +32,7 @@ WhatsApp adapter for OpenACP using the [Baileys](https://github.com/WhiskeySocke
 ### Install
 
 ```bash
-pnpm add @openacp/whatsapp-adapter
+pnpm add @acr-js/whatsapp-adapter
 ```
 
 ### Configuration

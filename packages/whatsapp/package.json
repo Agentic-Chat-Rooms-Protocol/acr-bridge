@@ -1,7 +1,7 @@
 {
-  "name": "@openacp/whatsapp-adapter",
-  "version": "0.1.0",
-  "description": "OpenACP WhatsApp adapter — Baileys-based plugin with voice notes, reactions, and low-fidelity rendering",
+  "name": "@acr-js/whatsapp-adapter",
+  "version": "1.1.0",
+  "description": "ACR WhatsApp adapter — Baileys-based plugin with voice notes, reactions, and low-fidelity rendering",
   "type": "module",
   "exports": {
     ".": {
@@ -18,7 +18,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@acr/platform-bridge-core": "file:../core"
+    "@acr-js/platform-bridge-core": "file:../core"
   },
   "devDependencies": {
     "@openacp/plugin-sdk": "^2026.407.1",
@@ -26,13 +26,15 @@
     "vitest": "^3.0.0",
     "typescript": "^5.8.0"
   },
-  "license": "MIT",
+  "author": "@acr-js",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos-sapiens/openacp-messenger-plugins"
+    "url": "https://github.com/Agentic-Chat-Rooms-Protocol/acr-bridge"
   },
   "keywords": [
-    "openacp",
+    "acr",
+    "acr-js",
     "plugin",
     "whatsapp",
     "adapter",

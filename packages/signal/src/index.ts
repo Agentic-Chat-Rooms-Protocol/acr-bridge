@@ -5,9 +5,9 @@ function createSignalPlugin(): OpenACPPlugin {
   let adapter: { stop(): Promise<void> } | null = null
 
   return {
-    name: '@openacp/signal-adapter',
-    version: '0.1.0',
-    description: 'Signal adapter for OpenACP via signal-cli-rest-api',
+    name: '@acr-js/signal-adapter',
+    version: '1.1.0',
+    description: 'ACR Signal adapter via signal-cli-rest-api',
     pluginDependencies: {
       '@openacp/security': '^1.0.0',
       '@openacp/notifications': '^1.0.0',

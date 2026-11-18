@@ -120,5 +120,5 @@ export function stripTrigger(text: string, trigger: string): string {
   if (!trigger) return text
   const idx = text.toLowerCase().indexOf(trigger.toLowerCase())
   if (idx === -1) return text
-  return (text.slice(0, idx) + text.slice(idx + trigger.length)).trim()
+  return (text.slice(0, idx) + text.slice(idx + trigger.length)).replace(/\s{2,}/g, ' ').trim()
 }

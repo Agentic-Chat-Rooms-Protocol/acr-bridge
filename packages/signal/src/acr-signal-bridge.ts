@@ -1,5 +1,5 @@
-import { MessengerDispatcher } from '../../acr-bridge-core/src/messenger-dispatcher.js';
-import type { InboundMessage, OutboundReply } from '../../acr-bridge-core/src/types.js';
+import { MessengerDispatcher } from '@acr-js/platform-bridge-core';
+import type { InboundMessage, OutboundReply } from '@acr-js/platform-bridge-core';
 
 export interface SignalDataMessage {
   timestamp: number;

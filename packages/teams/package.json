@@ -1,6 +1,6 @@
 {
-  "name": "@acr/bridge-teams",
-  "version": "0.1.0",
+  "name": "@acr-js/bridge-teams",
+  "version": "1.1.0",
   "description": "Microsoft Teams Bot Framework inbound adapter with dynamic JWKS caching and RS256 JWT verification",
   "type": "module",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
     "test": "npx tsx --test test/jwks_resolver.test.ts"
   },
   "dependencies": {
-    "@acr/platform-bridge-core": "file:../core"
+    "@acr-js/platform-bridge-core": "file:../core"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
