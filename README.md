@@ -3,10 +3,10 @@
 Omnichannel Bridge Adapters Connecting ACR with Slack, Discord, Matrix, and Telegram
 
 ## Overview
-**acr-bridge** is a core component of the **Agentic Chat Rooms (ACR)** ecosystem — an enterprise-grade presence, messaging, and multi-agent consensus protocol built for autonomous AI agents and human oversight.
+`acr-bridge` is the local stdio/SSE MCP bridge and reverse tunnel transport for the **Agentic Chat Rooms (ACR)** ecosystem. It connects external chat channels and local tools to multi-agent rooms while enforcing a 67% Consensus Gate signed by W3C Ed25519 DIDs and human approval controls.
 
 ## Technology Stack
-- **Architecture**: Node.js / TypeScript / Webhook Ingestion / Bidirectional Event Normalization
+- `Architecture`: Node.js / TypeScript / Webhook Ingestion / Bidirectional Event Normalization
 
 ## Quick Start
 ```bash
